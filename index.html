@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1217" />
+  <meta name="description" content="Dein privates Trainingstagebuch für den Cable Crossover. Offline, ohne Account, kostenlos." />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="CABLE / LOG" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="./icon-192.png" />
+  <link rel="icon" type="image/png" href="./icon-192.png" />
+  <link rel="stylesheet" href="./styles.css" />
+  <title>CABLE / LOG – Dein Training</title>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">C<span>/</span></div><div><strong>CABLE / LOG</strong><small>PERSONAL TRAINING</small></div></div>
+      <div class="sidebar-label">WORKSPACE</div>
+      <nav class="desktop-nav" id="desktop-nav"></nav>
+      <div class="sidebar-bottom"><span class="green-dot"></span><span>Privat · lokal gespeichert</span><small>Keine Cloud · Keine Kosten</small></div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar"><div class="topbar-heading"><span class="eyebrow">DEIN FITNESS-DASHBOARD</span><span id="header-date"></span></div><div class="topbar-actions"><span id="save-status" class="save-status"><span class="green-dot"></span> Lokal gespeichert</span><button type="button" class="icon-button" data-action="export" title="Sicherung herunterladen" aria-label="Backup erstellen">⇩</button></div></header>
+      <main id="app" class="main"><div class="loading">Trainingsdaten werden geladen …</div></main>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Navigation"></nav>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog id="exercise-dialog" class="edit-dialog"><form id="exercise-form" method="dialog"><div class="dialog-head"><div><div class="eyebrow">TRAININGSPLAN ANPASSEN</div><h2 id="dialog-title">Übung bearbeiten</h2></div><button class="icon-button" type="button" data-action="close-dialog" aria-label="Schließen">×</button></div><div class="field"><label for="e-name">Übungsname</label><input id="e-name" name="name" required maxlength="100" /></div><div class="field"><label for="e-muscle">Zielmuskulatur / Anatomie</label><textarea id="e-muscle" name="muscle" rows="3" maxlength="400"></textarea></div><div class="form-grid"><div class="field"><label for="e-sets">Arbeitssätze</label><input id="e-sets" name="sets" type="number" min="1" max="12" required /></div><div class="field"><label for="e-min">Wdh. mindestens</label><input id="e-min" name="min" type="number" min="1" max="100" required /></div><div class="field"><label for="e-max">Wdh. höchstens</label><input id="e-max" name="max" type="number" min="1" max="100" required /></div><div class="field"><label for="e-weight">Ausgangsgewicht (kg)</label><input id="e-weight" name="weight" type="number" min="0" step="0.5" placeholder="Optional" /></div></div><div class="field"><label for="e-tip">Technikhinweis</label><textarea id="e-tip" name="tip" rows="2" maxlength="400"></textarea></div><div class="dialog-actions" style="justify-content:space-between"><button type="button" class="button button-danger" id="delete-exercise" data-action="delete-exercise">Übung entfernen</button><div class="row"><button type="button" class="button button-ghost" data-action="close-dialog">Abbrechen</button><button class="button button-primary" type="submit">Speichern</button></div></div></form></dialog>
+  <input type="file" id="import-file" accept="application/json,.json" hidden />
+  <script src="./app.js" defer></script>
+</body>
+</html>
